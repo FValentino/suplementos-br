@@ -1,11 +1,11 @@
-# Suplementos BR — Demo Ecommerce
+# Suplementos BR — Tienda Ecommerce
 
-Demo comercial de tienda online para **Suplementos BR**, un comercio de suplementación
-deportiva y bienestar de San Miguel de Tucumán. El objetivo es mostrar cómo se vería una
-tienda propia: catálogo, detalle de producto, carrito y cierre de pedido por WhatsApp.
+Tienda online para **Suplementos BR**, un comercio de suplementación deportiva y bienestar de
+San Miguel de Tucumán. Incluye catálogo, detalle de producto, carrito y cierre de pedido por
+WhatsApp.
 
-> **Contenido de demostración.** Productos, marcas, precios, stock, reseñas y promociones son
-> ficticios. No representan información real del comercio.
+> **Datos del catálogo.** Los productos, marcas, presentaciones y precios fueron provistos por el
+> comercio. La disponibilidad y los precios finales se confirman por WhatsApp.
 
 ## Stack
 
@@ -35,8 +35,8 @@ pnpm lint    # eslint
 
 | Ruta | Descripción |
 | --- | --- |
-| `/` | Home con hero, categorías, destacados, promos, banner de marca, beneficios y más vendidos |
-| `/catalogo` | Catálogo completo con búsqueda, filtros por categoría, ofertas y orden |
+| `/` | Home con hero, categorías, destacados, banner de marca, beneficios y selección de productos |
+| `/catalogo` | Catálogo completo con búsqueda, filtros por categoría y orden |
 | `/producto/[slug]` | Detalle de producto con compra y consulta por WhatsApp |
 | `/carrito` | Carrito persistente y cierre de pedido por WhatsApp |
 
@@ -48,6 +48,7 @@ src/
 │   ├── catalogo/
 │   ├── producto/[slug]/
 │   └── carrito/
+├── assets/productos/           # Fotos reales de los productos
 ├── features/
 │   ├── catalog/                # Datos, tipos y componentes de producto
 │   ├── cart/                   # Contexto del carrito, líneas y checkout por WhatsApp
@@ -63,11 +64,14 @@ src/
 - **Instagram y ubicación:** también en `src/features/shared/config/site.ts`.
 - **Productos y precios:** `src/features/catalog/data/products.ts`.
 - **Categorías:** `src/features/catalog/data/categories.ts`.
-- **Logo e imágenes:** el logo y los packshots son SVG ilustrativos creados para la demo.
-  Se pueden reemplazar por las imágenes reales del comercio manteniendo la misma estética.
+- **Imágenes:** las fotos viven en `src/assets/productos` y se importan estáticamente en
+  `products.ts`. Si falta una imagen, `ProductVisual` genera un packshot SVG de respaldo.
+- **Logo:** el logo es un SVG ilustrativo creado para la tienda.
 
-## Notas de la demo
+## Notas
 
 - El carrito se guarda en `localStorage` del navegador.
 - No hay pago online: el botón de cierre arma un mensaje con el pedido y abre WhatsApp.
 - El número de WhatsApp incluido es un placeholder.
+- El catálogo es estático. No hay reseñas ni promociones cargadas: la sección de promos se oculta
+  automáticamente cuando ningún producto tiene `promo: true`.

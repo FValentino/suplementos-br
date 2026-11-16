@@ -1,52 +1,43 @@
-import {
-  ChatIcon,
-  ShieldCheckIcon,
-  SparklesIcon,
-  TruckIcon,
-} from "@/features/shared/components/icons";
-
-const benefits = [
+const steps = [
   {
-    icon: TruckIcon,
-    title: "Envíos a todo el país",
-    description: "Recibí tus productos donde estés, con coordinación directa.",
+    number: "01",
+    title: "Elegí tu producto",
+    description: "Explorá proteínas y creatinas y compará presentaciones y precios.",
   },
   {
-    icon: ChatIcon,
-    title: "Atención personalizada",
-    description: "Consultanos y recibí asesoramiento para elegir mejor.",
+    number: "02",
+    title: "Consultá stock",
+    description: "Escribinos por WhatsApp para confirmar disponibilidad y sabores.",
   },
   {
-    icon: SparklesIcon,
-    title: "Variedad de productos",
-    description: "Opciones para distintos objetivos y momentos de tu rutina.",
-  },
-  {
-    icon: ShieldCheckIcon,
-    title: "Compra sencilla",
-    description: "Elegí tus productos y cerramos el pedido por WhatsApp.",
+    number: "03",
+    title: "Recibí en tu casa",
+    description: "Coordinamos el envío a todo el país y el pago de forma directa.",
   },
 ];
 
 export function Benefits() {
   return (
-    <section className="border-y border-line bg-white">
-      <div className="container-page grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-line">
-        {benefits.map((benefit) => {
-          const Icon = benefit.icon;
-
-          return (
-            <div key={benefit.title} className="flex items-start gap-3 lg:px-6 lg:first:pl-0 lg:last:pr-0">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-mist text-brand">
-                <Icon className="h-5 w-5" />
+    <section className="section-space border-t border-line bg-paper">
+      <div className="container-page">
+        <h2 className="font-display text-[32px] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[40px]">
+          Cómo comprar
+        </h2>
+        <div className="mt-8 grid gap-8 sm:grid-cols-3 lg:gap-12">
+          {steps.map((step) => (
+            <div key={step.number}>
+              <span className="font-display text-[40px] font-extrabold leading-none tracking-[-0.03em] text-signal">
+                {step.number}
               </span>
-              <div>
-                <h2 className="font-display text-sm font-bold text-ink">{benefit.title}</h2>
-                <p className="mt-1 text-xs leading-relaxed text-muted">{benefit.description}</p>
-              </div>
+              <h3 className="mt-3 font-display text-xl font-bold leading-[1.05] tracking-[-0.03em] text-ink">
+                {step.title}
+              </h3>
+              <p className="mt-2 max-w-[65ch] text-base leading-[1.6] text-muted">
+                {step.description}
+              </p>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </section>
   );

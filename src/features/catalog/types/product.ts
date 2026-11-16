@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export type CategoryId =
   | "proteinas"
   | "creatinas"
@@ -36,10 +38,8 @@ export interface Product {
   description: string;
   benefits: string[];
   flavors?: string[];
-  rating: number;
-  reviews: number;
-  featured: boolean;
-  bestSeller: boolean;
+  image?: StaticImageData;
+  expirationDate?: string | null;
   promo: boolean;
   visual: ProductVisual;
 }

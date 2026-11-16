@@ -19,24 +19,26 @@ function CartSkeleton() {
           <div key={index} className="h-28 animate-pulse rounded-lg bg-mist" />
         ))}
       </div>
-      <div className="h-64 animate-pulse rounded-xl bg-mist" />
+      <div className="h-64 animate-pulse rounded-lg bg-mist" />
     </div>
   );
 }
 
 function EmptyCart() {
   return (
-    <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-line bg-mist/40 px-6 py-16 text-center">
-      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-muted">
+    <div className="flex flex-col items-center justify-center rounded-lg border border-line bg-mist px-6 py-16 text-center">
+      <span className="flex h-14 w-14 items-center justify-center rounded-lg bg-paper text-muted">
         <CartIcon className="h-6 w-6" />
       </span>
-      <h2 className="mt-4 font-display text-xl font-bold text-ink">Tu carrito está vacío</h2>
-      <p className="mt-1 max-w-sm text-sm leading-relaxed text-muted">
-        Sumá productos al carrito y después cerramos el pedido por WhatsApp.
+      <h2 className="mt-4 font-display text-2xl font-bold tracking-[-0.03em] text-ink">
+        Tu carrito está vacío
+      </h2>
+      <p className="mt-2 max-w-sm text-base leading-[1.6] text-muted">
+        Sumá productos al carrito y después coordinamos el pedido por WhatsApp.
       </p>
       <Link
         href="/catalogo"
-        className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-ink px-5 text-sm font-semibold text-white transition-colors hover:bg-ink-soft"
+        className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-signal px-5 text-sm font-semibold text-white transition-colors hover:bg-signal/90"
       >
         Ver catálogo
         <ArrowRightIcon className="h-4 w-4" />
@@ -63,12 +65,12 @@ export function CartView() {
       <div>
         <div className="flex items-center justify-between">
           <p className="text-sm text-muted">
-            {itemCount} {itemCount === 1 ? "producto" : "productos"} en tu carrito
+            {itemCount} {itemCount === 1 ? "producto" : "productos"}
           </p>
           <button
             type="button"
             onClick={clear}
-            className="text-xs font-semibold text-muted underline-offset-4 hover:text-brand-magenta hover:underline"
+            className="text-sm font-semibold text-muted underline-offset-4 hover:text-signal hover:underline"
           >
             Vaciar carrito
           </button>
@@ -87,28 +89,30 @@ export function CartView() {
 
         <Link
           href="/catalogo"
-          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-brand"
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-signal"
         >
           <ArrowRightIcon className="h-4 w-4 rotate-180" />
           Seguir comprando
         </Link>
       </div>
 
-      <aside className="rounded-xl border border-line bg-mist/50 p-5 lg:sticky lg:top-24">
-        <h2 className="font-display text-lg font-bold text-ink">Resumen del pedido</h2>
+      <aside className="rounded-lg border border-line bg-mist p-5 lg:sticky lg:top-24">
+        <h2 className="font-display text-xl font-bold tracking-[-0.03em] text-ink">
+          Resumen del pedido
+        </h2>
 
-        <dl className="mt-4 space-y-2 text-sm">
+        <dl className="mt-4 space-y-3 text-sm">
           <div className="flex items-center justify-between">
             <dt className="text-muted">Subtotal</dt>
             <dd className="font-semibold text-ink">{formatPrice(subtotal)}</dd>
           </div>
           <div className="flex items-center justify-between gap-4">
             <dt className="text-muted">Envío</dt>
-            <dd className="text-right text-xs text-muted">A coordinar por WhatsApp</dd>
+            <dd className="text-right text-sm text-muted">A coordinar por WhatsApp</dd>
           </div>
           <div className="flex items-center justify-between border-t border-line pt-3">
             <dt className="font-semibold text-ink">Total</dt>
-            <dd className="font-display text-lg font-extrabold text-ink">
+            <dd className="font-display text-2xl font-extrabold tracking-[-0.03em] text-ink">
               {formatPrice(subtotal)}
             </dd>
           </div>
@@ -118,15 +122,14 @@ export function CartView() {
           href={whatsappUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-whatsapp text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-signal text-sm font-semibold text-white transition-colors hover:bg-signal/90"
         >
           <WhatsAppIcon className="h-4 w-4" />
           Finalizar por WhatsApp
         </a>
 
-        <p className="mt-3 text-[11px] leading-relaxed text-muted">
-          Demo sin pasarela de pago: el pedido se envía como mensaje y no se cobra nada desde la
-          web.
+        <p className="mt-3 text-sm leading-[1.6] text-muted">
+          El pedido se envía como mensaje. Coordinamos stock, envío y pago por WhatsApp.
         </p>
       </aside>
     </div>

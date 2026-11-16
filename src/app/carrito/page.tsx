@@ -8,20 +8,19 @@ export const metadata: Metadata = {
 
 export default function CartPage() {
   return (
-    <div className="bg-white">
-      <div className="border-b border-line bg-mist/50 py-10">
+    <div className="bg-paper">
+      <div className="section-space border-b border-line">
         <div className="container-page">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">Pedido</p>
-          <h1 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+          <h1 className="font-display text-[40px] font-extrabold leading-[0.98] tracking-[-0.03em] text-ink sm:text-[56px]">
             Tu carrito
           </h1>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+          <p className="mt-4 max-w-[65ch] text-lg leading-[1.6] text-muted">
             Revisá tus productos y coordinamos disponibilidad, envío y pago por WhatsApp.
           </p>
         </div>
       </div>
 
-      <div className="container-page py-10">
+      <div className="container-page py-10 lg:py-12">
         <CartView />
       </div>
     </div>

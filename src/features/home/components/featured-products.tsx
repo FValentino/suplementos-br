@@ -3,15 +3,15 @@ import { getFeaturedProducts } from "@/features/catalog/utils/catalog-selectors"
 import { SectionHeader } from "@/features/shared/components/section-header";
 
 export function FeaturedProducts() {
-  const featured = getFeaturedProducts(8);
+  const featured = getFeaturedProducts(4);
 
   return (
-    <section className="bg-white py-14 lg:py-20">
+    <section className="section-space border-t border-line bg-paper">
       <div className="container-page">
         <SectionHeader
-          title="Elegidos para vos"
-          description="Una selección de los productos que más nos consultan para arrancar, rendir y recuperar."
-          action={{ label: "Ver todo", href: "/catalogo" }}
+          title="Los más elegidos"
+          description="Productos con buena rotación para empezar o reponer."
+          action={{ label: "Ver catálogo", href: "/catalogo" }}
         />
 
         <ProductGrid products={featured} className="mt-8" />

@@ -5,7 +5,6 @@ import "./globals.css";
 import { CartProvider } from "@/features/cart/context/cart-context";
 import { Footer } from "@/features/layout/components/footer";
 import { Header } from "@/features/layout/components/header";
-import { TopBar } from "@/features/layout/components/top-bar";
 import { WhatsAppFab } from "@/features/layout/components/whatsapp-fab";
 
 const displayFont = Archivo({
@@ -26,16 +25,15 @@ export const metadata: Metadata = {
     template: "%s | Suplementos BR",
   },
   description:
-    "Tienda online de suplementación deportiva y bienestar en San Miguel de Tucumán. Proteínas, creatinas, pre-entrenos y más. Consultas y pedidos por WhatsApp.",
+    "Tienda online de suplementación deportiva y bienestar en San Miguel de Tucumán. Proteínas y creatinas. Consultas y pedidos por WhatsApp.",
   applicationName: "Suplementos BR",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es-AR" className={`${displayFont.variable} ${bodyFont.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col bg-paper text-ink">
         <CartProvider>
-          <TopBar />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

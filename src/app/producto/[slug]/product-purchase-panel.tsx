@@ -25,25 +25,25 @@ export function ProductPurchasePanel({ productId }: { productId: string }) {
   }
 
   return (
-    <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-      <div className="flex h-12 items-center justify-between rounded-lg border border-line bg-white px-1 sm:w-36">
+    <div className="flex flex-col gap-3 sm:flex-row">
+      <div className="flex h-12 items-center justify-between rounded-lg border border-line bg-paper px-1 sm:w-36">
         <button
           type="button"
           onClick={() => setQuantity((current) => Math.max(1, current - 1))}
           disabled={quantity <= 1}
           aria-label="Restar una unidad"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink transition-colors hover:bg-mist disabled:opacity-40"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-mist disabled:opacity-40"
         >
           <MinusIcon className="h-4 w-4" />
         </button>
-        <span aria-live="polite" className="w-8 text-center text-sm font-bold tabular-nums text-ink">
+        <span aria-live="polite" className="w-8 text-center text-sm font-semibold tabular-nums text-ink">
           {quantity}
         </span>
         <button
           type="button"
           onClick={() => setQuantity((current) => Math.min(99, current + 1))}
           aria-label="Sumar una unidad"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink transition-colors hover:bg-mist"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-mist"
         >
           <PlusIcon className="h-4 w-4" />
         </button>
@@ -53,7 +53,7 @@ export function ProductPurchasePanel({ productId }: { productId: string }) {
         type="button"
         onClick={handleAdd}
         className={`inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold text-white transition-colors ${
-          added ? "bg-brand-violet" : "bg-ink hover:bg-ink-soft"
+          added ? "bg-ink" : "bg-signal hover:bg-signal/90"
         }`}
       >
         {added ? <CheckIcon className="h-4 w-4" /> : null}

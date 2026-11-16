@@ -19,15 +19,15 @@ export function getProductById(id: string): Product | undefined {
 }
 
 export function getFeaturedProducts(limit = 8): Product[] {
-  return products.filter((product) => product.featured).slice(0, limit);
+  return products.slice(0, limit);
+}
+
+export function getCatalogProducts(limit = 4): Product[] {
+  return products.slice(0, limit);
 }
 
 export function getPromoProducts(limit = 4): Product[] {
   return products.filter((product) => product.promo).slice(0, limit);
-}
-
-export function getBestSellers(limit = 4): Product[] {
-  return products.filter((product) => product.bestSeller).slice(0, limit);
 }
 
 export function getRelatedProducts(product: Product, limit = 4): Product[] {
@@ -71,6 +71,6 @@ export function filterProducts(filters: CatalogFilters): Product[] {
     if (filters.sort === "price-asc") return a.price - b.price;
     if (filters.sort === "price-desc") return b.price - a.price;
     if (filters.sort === "name") return a.name.localeCompare(b.name, "es");
-    return Number(b.featured) - Number(a.featured);
+    return 0;
   });
 }
